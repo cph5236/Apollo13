@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1649944363
+    locked: 0
+  - name: Planets
+    uniqueID: 4078758961
+    locked: 0
+  - name: Pickups
+    uniqueID: 781710845
+    locked: 0
+  - name: Player
+    uniqueID: 2818188567
+    locked: 0
