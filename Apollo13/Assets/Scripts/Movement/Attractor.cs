@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour
 {
-    private float G = 5;
-    public Rigidbody2D rb;
+    protected float G = 6.67f;
+    public Rigidbody2D body;
+    public bool remainStationary;
 
     private void FixedUpdate()
     {
         Attractor[] attractors = FindObjectsOfType<Attractor>();
         foreach(Attractor attractor in attractors)
         {
-            if (attractor != this)
+            if (attractor != this && attractor.remainStationary != true)
                 Attract(attractor);
         }
     }
 
     void Attract(Attractor objToAttract)
     {
-        Rigidbody2D rbToAttract = objToAttract.rb;
+        Rigidbody2D rbToAttract = objToAttract.body;
 
-        Vector2 direction = rb.position - rbToAttract.position;
+        Vector2 direction = body.position - rbToAttract.position;
         float dist = direction.magnitude;
 
-        float forceMag = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(dist, 2);
+        float forceMag = G * (body.mass * rbToAttract.mass) / Mathf.Pow(dist, 2);
 
         Vector2 force = direction.normalized * forceMag;
 
