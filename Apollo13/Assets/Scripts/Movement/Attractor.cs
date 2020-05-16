@@ -8,7 +8,7 @@ public class Attractor : MonoBehaviour
     public Rigidbody2D body;
     public bool remainStationary;
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         Attractor[] attractors = FindObjectsOfType<Attractor>();
         foreach(Attractor attractor in attractors)
@@ -18,7 +18,7 @@ public class Attractor : MonoBehaviour
         }
     }
 
-    void Attract(Attractor objToAttract)
+    private void Attract(Attractor objToAttract)
     {
         Rigidbody2D rbToAttract = objToAttract.body;
 
